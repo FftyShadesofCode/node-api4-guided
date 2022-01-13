@@ -117,3 +117,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Idea Folder
+.idea/
+
+# .ENV Files
+.env
