@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const path = require('path')
+
 // const cohort1 = process.argv[2]
 // const user = process.env.USER
 // const shell = process.env.SHELL
@@ -16,8 +18,15 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+app.use(express.json())
+app.use(express.static(path.join(__dirname, 'client/build' )))
+
 app.get('hello', (req, res) => {
     res.json({ message: 'hey there' })
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', index.js ))
 })
 
 const port = process.env.PORT || 9000
